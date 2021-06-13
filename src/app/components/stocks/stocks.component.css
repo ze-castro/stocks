@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+}
+
+.before-screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: black;
+    background-image: url(../../../assets/images/home/stocks.png);
+    animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes slide-out-top {
+    0% {
+        transform: translateY(0) translate(-50%, -50%);
+    }
+    100% {
+        transform: translateY(-150%) translate(-50%, -50%);
+        display: none;
+    }
+}
+
+.before-screen h1 {
+    font-size: 5vw;
+    color: whitesmoke;
+    transition-duration: 0.5s;
+}
+
+.left,
+.right {
+    height: 100%;
+}
+
+.left {
+    width: 30%;
+    background-image: url(../../../assets/images/home/blur.jpg);
+    border-right: 2px gray solid;
+}
+
+.right {
+    width: 70%;
+}
+
+.top,
+.bottom {
+    width: 100%;
+    background-color: rgb(63, 63, 63);
+}
+
+.top {
+    height: 60%;
+}
+
+.bottom {
+    height: 40%;
+}
+
+.input {
+    width: 100%;
+    height: 20%;
+}
+
+.input input {
+    width: 50%;
+    aspect-ratio: 6/1;
+}

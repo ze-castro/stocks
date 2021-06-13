@@ -1,1 +1,233 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../src/fontface.css";
+:root {}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    outline: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    /*font*/
+    font-family: 'SFPro', sans-serif;
+}
+
+body {
+    width: 100vw;
+    position: relative;
+}
+
+
+/* Input Defauts */
+
+input {
+    border: 1px solid #d6d6d6;
+    border-radius: 0.4vh;
+    padding-left: 1vh;
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition-duration: 0.3s;
+}
+
+input:focus {
+    border-color: #0070c9;
+    box-shadow: 0 0 0 0.1vh rgba(131, 192, 253, 0.50);
+}
+
+
+/* button defaults */
+
+button {
+    border-radius: 2vh;
+    border: 0;
+    background-color: linear-gradient(to bottom, lightgray, darkgray);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+    background-color: rgb(0, 94, 172);
+    color: whitesmoke;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(0, 120, 218);
+}
+
+button:active {
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+}
+
+button:focus {
+    background-color: rgb(0, 120, 218);
+}
+
+button:disabled {
+    color: rgb(129, 198, 255);
+    background-color: rgb(0, 96, 175);
+}
+
+
+/* my bootstrapy library */
+
+
+/* position */
+
+.position-fix {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+
+/* none */
+
+.display-none {
+    display: none;
+}
+
+
+/* grid */
+
+.display-grid-center {
+    display: grid;
+    place-items: center;
+}
+
+.display-grid-start {
+    display: grid;
+    justify-content: flex-start;
+}
+
+
+/* flex */
+
+.column-flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.column-space-evenly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.column-flex-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.row-flex-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-space-evenly {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.row-flex-start {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+/* loading animation */
+
+.spinner {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.spinner div {
+    width: 5%;
+    height: 16%;
+    background: #FFF;
+    position: absolute;
+    left: 49%;
+    top: 43%;
+    opacity: 0;
+    border-radius: 50px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    animation: fade 1s linear infinite;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.25;
+    }
+}
+
+.spinner .bar1 {
+    transform: rotate(0deg) translate(0, -130%);
+    animation-delay: 0s;
+}
+
+.spinner .bar2 {
+    transform: rotate(30deg) translate(0, -130%);
+    animation-delay: -0.9167s;
+}
+
+.spinner .bar3 {
+    transform: rotate(60deg) translate(0, -130%);
+    animation-delay: -0.833s;
+}
+
+.spinner .bar4 {
+    transform: rotate(90deg) translate(0, -130%);
+    animation-delay: -0.7497s;
+}
+
+.spinner .bar5 {
+    transform: rotate(120deg) translate(0, -130%);
+    animation-delay: -0.667s;
+}
+
+.spinner .bar6 {
+    transform: rotate(150deg) translate(0, -130%);
+    animation-delay: -0.5837s;
+}
+
+.spinner .bar7 {
+    transform: rotate(180deg) translate(0, -130%);
+    animation-delay: -0.5s;
+}
+
+.spinner .bar8 {
+    transform: rotate(210deg) translate(0, -130%);
+    animation-delay: -0.4167s;
+}
+
+.spinner .bar9 {
+    transform: rotate(240deg) translate(0, -130%);
+    animation-delay: -0.333s;
+}
+
+.spinner .bar10 {
+    transform: rotate(270deg) translate(0, -130%);
+    animation-delay: -0.2497s;
+}
+
+.spinner .bar11 {
+    transform: rotate(300deg) translate(0, -130%);
+    animation-delay: -0.167s;
+}
+
+.spinner .bar12 {
+    transform: rotate(330deg) translate(0, -130%);
+    animation-delay: -0.0833s;
+}

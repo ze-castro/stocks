@@ -1,0 +1,36 @@
+<body>
+    <div class="card blackjack square column-space-evenly" (click)="loadingScreen(blackjack, spinner1, stocks)" id="blackjack" #blackjack>
+        <h1 #blackjackTitle>Blackjack</h1>
+        <div class="spinner display-none" #spinner1>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="bar4"></div>
+            <div class="bar5"></div>
+            <div class="bar6"></div>
+            <div class="bar7"></div>
+            <div class="bar8"></div>
+            <div class="bar9"></div>
+            <div class="bar10"></div>
+            <div class="bar11"></div>
+            <div class="bar12"></div>
+        </div>
+    </div>
+    <div class="card stocks square column-space-evenly" (click)="loadingScreen(stocks, spinner2, blackjack)" id="stocks" #stocks>
+        <h1 #stocksTitle>Stocks</h1>
+        <div class="spinner display-none" #spinner2>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="bar4"></div>
+            <div class="bar5"></div>
+            <div class="bar6"></div>
+            <div class="bar7"></div>
+            <div class="bar8"></div>
+            <div class="bar9"></div>
+            <div class="bar10"></div>
+            <div class="bar11"></div>
+            <div class="bar12"></div>
+        </div>
+    </div>
+</body>

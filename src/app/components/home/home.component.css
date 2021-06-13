@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    background-color: rgb(107, 135, 151);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+
+.card {
+    width: 40%;
+    aspect-ratio: 1/1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-color: black;
+    border-radius: 1vh;
+    transition-duration: 0.5s;
+    box-shadow: none;
+}
+
+.card:hover {
+    background-size: auto 150%;
+}
+
+h1 {
+    font-size: 5vw;
+    color: whitesmoke;
+    transition-duration: 0.5s;
+}
+
+.card:hover h1 {
+    font-size: 4vw;
+}
+
+.stocks {
+    background-image: url(../../../assets/images/home/stocks.png);
+}
+
+.blackjack {
+    background-image: url(../../../assets/images/home/blackjack.png);
+}
+
+.stocks:hover,
+.blackjack:hover {
+    box-shadow: 0 0 0 10px whitesmoke;
+}
+
+@media (max-width: 756px) {
+    body {
+        flex-direction: column;
+    }
+    .card {
+        width: 300px
+    }
+    .card h1 {
+        font-size: 42px;
+    }
+    .card:hover h1 {
+        font-size: 32px;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
