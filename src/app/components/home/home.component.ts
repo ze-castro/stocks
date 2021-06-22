@@ -15,12 +15,8 @@ export class HomeComponent implements OnInit {
 
   loadingScreen(div1 : HTMLDivElement, spinner : HTMLDivElement, div2 : HTMLDivElement) {
     div1.classList.remove("card")
-    div1.style.width="100vw";
-    div1.style.height="100vh";
-    div1.style.backgroundSize="100% auto"
-    div1.style.backgroundPosition="center"
-    div1.style.transitionDuration="0.5s"
-    div2.style.display="none";
+    div1.classList.add("card-after")
+    div2.style.display="none"
     setTimeout(() => {
       div1.style.justifyContent="center"
       spinner.classList.remove("display-none")

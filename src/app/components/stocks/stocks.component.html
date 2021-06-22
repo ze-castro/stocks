@@ -17,16 +17,31 @@
             <div class="bar12"></div>
         </div>
     </div>
-
     <!-- stocks -->
     <div class="left space-space-evenly">
-        <div class="input display-grid-center">
-            <input type="text" #search (keyup.enter)="getStock(search.value)">
+        <div class="input display-grid-center" #error>
+            <input type="text" #search (keyup.enter)="getStock(search.value)" placeholder="Search for a crypto">
         </div>
-        <div class="stocks"></div>
+        <div class="stocks column-space-evenly">
+            <div class="stock row-space-evenly">
+                <h1>{{this.stock.ticker.base || "COIN"}}</h1>
+                <h2>Price <br> {{this.stock.ticker.price || 0}}€</h2>
+                <h2>Change <br> {{this.stock.ticker.change || 0}}€</h2>
+            </div>
+        </div>
     </div>
     <div class="right column-space-evenly">
-        <div class="top"></div>
-        <div class="bottom"></div>
+        <div class="top column-space-evenly">
+            <div class="graph"></div>
+            <div class="bottom-showdown row-space-evenly">
+                <h1>{{this.stock.ticker.base || "COIN"}}</h1>
+                <h2>Price <br> {{this.stock.ticker.price || 0}}€</h2>
+                <h2>Change <br> {{this.stock.ticker.change || 0}}€</h2>
+            </div>
+        </div>
+        <div class="bottom display-grid-center">
+            <button class="buy">Buy</button>
+            <button class="sell">Sell</button>
+        </div>
     </div>
 </body>

@@ -14,6 +14,13 @@ body {
     background-color: black;
     background-image: url(../../../assets/images/home/stocks.png);
     animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    z-index: 2;
+}
+
+.before-screen h1 {
+    font-size: 5vw;
+    color: whitesmoke;
+    transition-duration: 0.5s;
 }
 
 @keyframes slide-out-top {
@@ -26,12 +33,6 @@ body {
     }
 }
 
-.before-screen h1 {
-    font-size: 5vw;
-    color: whitesmoke;
-    transition-duration: 0.5s;
-}
-
 .left,
 .right {
     height: 100%;
@@ -40,6 +41,7 @@ body {
 .left {
     width: 30%;
     background-image: url(../../../assets/images/home/blur.jpg);
+    background-size: 100% 100%;
     border-right: 2px gray solid;
 }
 
@@ -50,23 +52,145 @@ body {
 .top,
 .bottom {
     width: 100%;
-    background-color: rgb(63, 63, 63);
 }
 
 .top {
     height: 60%;
+    background-color: rgb(128, 128, 128);
 }
 
 .bottom {
     height: 40%;
+    background-color: rgb(63, 63, 63);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 .input {
     width: 100%;
     height: 20%;
+    position: relative;
 }
 
 .input input {
     width: 50%;
     aspect-ratio: 6/1;
+    font-size: 1.5vw;
+}
+
+.not-found::before,
+.not-found::after {
+    position: absolute;
+}
+
+.not-found::before {
+    content: "Invalid Coin!";
+    font-size: 1vw;
+    display: grid;
+    place-items: center;
+    width: 35%;
+    height: 17%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 1.5vh;
+    z-index: 1;
+    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.not-found::after {
+    content: "";
+    top: 30%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid white;
+    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.not-found-exit::before,
+.not-found-exit::after {
+    animation: fade-out-top 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes fade-in-top {
+    0% {
+        transform: translateY(-30px) translate(-50%, -50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-top {
+    0% {
+        transform: translateY(0) translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.graph {
+    width: 100%;
+    height: 80%;
+}
+
+.bottom-showdown {
+    width: 100%;
+    height: 20%;
+    background-color: rgb(34, 34, 34);
+}
+
+.bottom-showdown h1,
+.bottom-showdown h2 {
+    color: whitesmoke;
+}
+
+.buy,
+.sell {
+    width: 45%;
+    aspect-ratio: 3/1;
+    border-radius: 1vh;
+    font-size: 3vw;
+    color: whitesmoke;
+    transition-duration: 0.3s;
+}
+
+.buy {
+    background-color: rgb(59, 167, 59);
+    border: 0.5vh solid rgb(83, 189, 83);
+}
+
+.sell {
+    background-color: rgb(180, 57, 57);
+    border: 0.5vh solid brown;
+}
+
+.buy:hover,
+.sell:hover {
+    width: 47%;
+    font-size: 3.2vw;
+}
+
+.buy:active,
+.sell:active {
+    filter: brightness(0.8);
+}
+
+.stocks {
+    width: 100%;
+    height: 80%;
+}
+
+.stock {
+    width: 100%;
+    height: calc(100%/6);
 }

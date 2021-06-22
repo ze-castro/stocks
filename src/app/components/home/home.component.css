@@ -24,6 +24,14 @@ body {
     background-size: auto 150%;
 }
 
+.card-after {
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% auto;
+    background-position: center;
+    transition-duration: 0.5s;
+}
+
 h1 {
     font-size: 5vw;
     color: whitesmoke;

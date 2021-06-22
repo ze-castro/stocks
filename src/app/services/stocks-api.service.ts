@@ -1,23 +1,39 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StocksApiService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private _zone: NgZone) { }
 
-  //example - www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=TSLA&apikey=QMD3C7RTZNR7MBHG
-
-  apiKey : string = "c333ubqad3ifq94434hg"
-
-  stocks : string = "https://finnhub.io/api/v1/quote"
+  stocks : any = {
+    link: "https://api.cryptonator.com/api/ticker/",
+    currency: "eur"
+  }
 
   getStock(search : string){
-    return this.http.get(this.stocks, {
-      params: {'symbol': search,
-      'token': this.apiKey}
-    })
+    return this.http.get(this.stocks.link + search + "-" + this.stocks.currency)
+  }
+
+  getServerSentEvent(url: string): Observable<any> {
+    return Observable.create(observer => {
+      const eventSource = this.getEventSource(url);
+      eventSource.onmessage = event => {
+        this._zone.run(() => {
+          observer.next(event);
+        });
+      };
+      eventSource.onerror = error => {
+        this._zone.run(() => {
+          observer.error(error);
+        });
+      };
+    });
+  }
+  private getEventSource(url: string): EventSource {
+    return new EventSource(url);
   }
 }

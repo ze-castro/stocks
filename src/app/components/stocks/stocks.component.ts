@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Stock } from 'src/app/classes/stock';
 import { StocksApiService } from 'src/app/services/stocks-api.service';
 
 @Component({
@@ -10,6 +11,9 @@ export class StocksComponent implements OnInit {
 
   constructor(private service : StocksApiService) { }
 
+  @ViewChild("error") input : any;
+  @ViewChild("search") search : any;
+
   beforeScreen : boolean = false
 
   ngOnInit(): void {
@@ -18,10 +22,40 @@ export class StocksComponent implements OnInit {
     }, 1000);
   }
 
-  stock : any
+  stock : any = {
+    error: "",
+    success: false,
+    ticker: {
+      base: "",
+      price: 0,
+      change: 0,
+      target: "",
+      volume: 0
+    },
+    timestamp: 0
+  }
   getStock(search : string){
+      this.search.nativeElement.disabled = true;
       this.service.getStock(search).subscribe(data => {this.stock = data,
-          console.log(this.stock.c)
+      this.stock.success ? this.stock = data : this.input.nativeElement.classList.add('not-found'),
+        setTimeout(() => {
+          this.input.nativeElement.classList.add('not-found-exit')
+          setTimeout(() => {
+            this.search.nativeElement.disabled = false
+            this.input.nativeElement.classList.remove('not-found')
+          }, 1000);
+        }, 2000);
+        console.log(data)
       })
+      this.input.nativeElement.classList.remove('not-found')
+      this.input.nativeElement.classList.remove('not-found-exit')
+  }
+
+  searchForCoins : string[] = ['btc', 'eth', 'xrp', 'ada', 'doge', 'bch']
+
+  getDefaultStocks(){
+    this.service.getStock(this.searchForCoins[0]).subscribe(data => {
+      this.stock = data
+    })
   }
 }
