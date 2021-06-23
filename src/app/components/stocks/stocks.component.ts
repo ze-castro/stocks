@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { SaldoService } from 'src/app/services/saldo.service';
 import { StocksApiService } from 'src/app/services/stocks-api.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { StocksApiService } from 'src/app/services/stocks-api.service';
 export class StocksComponent implements OnInit {
 
   stocksService : StocksApiService
-  constructor(private service : StocksApiService) {
+  saldoService : SaldoService
+  constructor(private service : StocksApiService, private saldo : SaldoService) {
     this.stocksService = service
+    this.saldoService = saldo
   }
 
   @ViewChild("error") input : any;
@@ -23,6 +26,7 @@ export class StocksComponent implements OnInit {
       this.beforeScreen = true
     }, 1000);
     this.getDefaultStocks()
+    this.saldo.balance = localStorage.getItem("balance")
   }
 
   stock : any = {
@@ -78,7 +82,7 @@ export class StocksComponent implements OnInit {
       }
       localStorage.setItem(this.stock.ticker.base, (parseInt(localStorage.getItem(this.stock.ticker.base)) + (parseInt(input.value))).toString())
       localStorage.setItem("balance", (parseFloat(localStorage.getItem("balance")) - (parseInt(input.value) * this.stock.ticker.price)).toString())
-      this.service.balance = localStorage.getItem("balance")
+      this.saldo.balance = localStorage.getItem("balance")
     }
   }
 
@@ -91,7 +95,7 @@ export class StocksComponent implements OnInit {
     } else {
       localStorage.setItem(this.stock.ticker.base, (parseInt(localStorage.getItem(this.stock.ticker.base)) - (parseInt(input.value))).toString())
       localStorage.setItem("balance", (parseFloat(localStorage.getItem("balance")) + (parseInt(input.value) * this.stock.ticker.price)).toString())
-      this.service.balance = localStorage.getItem("balance")
+      this.saldo.balance = localStorage.getItem("balance")
     }
   }
 }

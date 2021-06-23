@@ -1,0 +1,235 @@
+.page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../../assets/Images/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.before-screen {
+    background-image: url(../../../assets/images/home/blackjack.png);
+}
+
+.player,
+.dealer {
+    position: relative;
+    width: 100%;
+    height: 45%;
+}
+
+.player img,
+.dealer img {
+    top: 50%;
+    position: absolute;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.player img:nth-of-type(1),
+.dealer img:nth-of-type(1) {
+    z-index: 1;
+    left: 42%;
+}
+
+.player img:nth-of-type(2),
+.dealer img:nth-of-type(2) {
+    z-index: 2;
+    left: 46%;
+}
+
+.player img:nth-of-type(3),
+.dealer img:nth-of-type(3) {
+    z-index: 3;
+    left: 50%;
+}
+
+.player img:nth-of-type(4),
+.dealer img:nth-of-type(4) {
+    z-index: 4;
+    left: 54%;
+}
+
+.player img:nth-of-type(5),
+.dealer img:nth-of-type(5) {
+    z-index: 5;
+    left: 58%;
+}
+
+.chips {
+    width: auto;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.chips img {
+    width: 60%;
+}
+
+.decision {
+    position: relative;
+    width: 30%;
+    height: 10%;
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.decision svg {
+    width: 7%;
+}
+
+.decision svg:hover {
+    transform: scale(1.2);
+}
+
+.pontos {
+    aspect-ratio: 1/2;
+    height: 30%;
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.145);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.596);
+    color: white;
+    text-align: center;
+    font-size: large;
+}
+
+.result {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(43, 43, 43, 0.404);
+    color: white;
+    font-size: xx-large;
+    z-index: 20;
+}
+
+.result button {
+    width: 100%;
+    height: 70%;
+    background-color: rgba(43, 43, 43, 0.404);
+    border-radius: 25px;
+    border: 1px solid white;
+    color: white;
+}
+
+.start {
+    position: absolute;
+    aspect-ratio: 1/1;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.start button {
+    position: relative;
+    width: 80%;
+    height: 20%;
+    background-color: yellow;
+    border-radius: 25px;
+    border: 1px solid black;
+    color: black;
+}
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+
+@media screen and (max-width: 769px),
+screen and (max-height: 700px) {
+    .start button {
+        width: 60%;
+    }
+    .chips img {
+        width: 90%;
+    }
+    * {
+        font-size: 11px;
+    }
+    .pontos {
+        aspect-ratio: 1/3;
+    }
+    .player img,
+    .dealer img {
+        top: 50%;
+        position: absolute;
+        height: 45%;
+    }
+    .decision svg {
+        width: 18%;
+    }
+}
+
+
+/* (320x480) Smartphone, Landscape */
+
+@media only screen and (min-device-width: 720px) and (max-device-width: 1280px) and (orientation: landscape) {
+    .chips img {
+        width: 80%;
+    }
+    .player img,
+    .dealer img {
+        top: 50%;
+        position: absolute;
+        height: 50%;
+    }
+    .decision svg {
+        width: 12%;
+    }
+}
+
+
+/* // Medium devices (tablets, less than 992px) */
+
+@media only screen and (min-width: 769.1px) and (max-width: 991.98px) {
+    .chips img {
+        width: 60%;
+    }
+    .player img,
+    .dealer img {
+        top: 50%;
+        position: absolute;
+        height: 55%;
+    }
+}
+
+
+/* (1024x768) iPad 1 & 2, XGA */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}
+
+
+/* // Large devices (desktops, less than 1200px) */
+
+@media only screen and (min-width: 769px) and (max-width: 1300.98px) {}

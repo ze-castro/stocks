@@ -33,6 +33,7 @@
     <div class="right column-space-evenly">
         <div class="top column-space-evenly">
             <div class="graph">
+                <img src="assets/images/chart.png" alt="graph">
             </div>
             <div class="bottom-showdown row-space-evenly">
                 <h1>{{this.stock.ticker.base || "COIN"}}</h1>
@@ -42,7 +43,7 @@
         </div>
         <div class="bottom display-grid-center">
             <div class="balance display-grid-center">
-                <h2>Balance <br>{{this.stocksService.balance || 0}}€</h2>
+                <h2>Balance <br>{{this.saldoService.balance || 0}}€</h2>
             </div>
             <div class="button column-flex-center">
                 <button class="buy" (click)="buy(buyInput)">Buy</button>

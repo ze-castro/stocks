@@ -3,34 +3,7 @@ body {
 }
 
 .before-screen {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-color: black;
     background-image: url(../../../assets/images/home/stocks.png);
-    animation: slide-out-top 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    z-index: 2;
-}
-
-.before-screen h1 {
-    font-size: 5vw;
-    color: whitesmoke;
-    transition-duration: 0.5s;
-}
-
-@keyframes slide-out-top {
-    0% {
-        transform: translateY(0) translate(-50%, -50%);
-    }
-    100% {
-        transform: translateY(-150%) translate(-50%, -50%);
-        display: none;
-    }
 }
 
 .left,
@@ -143,6 +116,10 @@ body {
     height: 80%;
 }
 
+.graph img {
+    width: 100%;
+}
+
 .bottom-showdown {
     width: 100%;
     height: 20%;
@@ -207,4 +184,6 @@ body {
 .stock {
     width: 100%;
     height: calc(100%/6);
+    padding-left: 5%;
+    padding-right: 5%;
 }

@@ -8,8 +8,6 @@ export class StocksApiService {
 
   constructor(private http : HttpClient) { }
 
-  balance : string = localStorage.getItem("balance")
-
   stocks : any = {
     link: "https://api.cryptonator.com/api/ticker/",
     currency: "eur"
