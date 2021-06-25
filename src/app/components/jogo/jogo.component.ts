@@ -30,7 +30,7 @@ export class JogoComponent implements OnInit {
   }
 
   // Apos o onInit esta funçao é executada e guarda os HTMLElemnts num objeto cartas2
-  ngAfterViewInit() : void{
+  ngAfterViewInit() : void {
     this.cartas2.push(this.card0);
     this.cartas2.push(this.card1);
     this.cartas2.push(this.card2);
@@ -41,7 +41,6 @@ export class JogoComponent implements OnInit {
     this.cartas2.push(this.card7);
     this.cartas2.push(this.card8);
     this.cartas2.push(this.card9);
-
   }
 
   // ViewChield para manipulaçao do html e css
@@ -160,7 +159,7 @@ export class JogoComponent implements OnInit {
       }, 600);
     }else {
       //caso a proxima carta a ser dada seja a "quarta" ou seja a segunda carta do dealer apenas mostra o verso
-      this.cartas2[this.contador].nativeElement.src = "../../../assets/Images/card.png";
+      this.cartas2[this.contador].nativeElement.src = "../../../assets/images/card.png";
       this.cartas2[this.contador].nativeElement.style.display = "block";
       this.decisao.nativeElement.style.display = "flex";
       this.contador++;
